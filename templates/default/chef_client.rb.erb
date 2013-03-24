@@ -2,5 +2,5 @@ log_level                :info
 log_location             "/mnt/log/chef/client.log"
 validation_client_name   "prod-validator"
 validation_key           "/etc/chef/prod-validator.pem"
-chef_server_url          "https://15.185.102.107/organizations/prod"
+chef_server_url          "<%= @server_url %>"
 

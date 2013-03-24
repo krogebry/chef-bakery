@@ -1,0 +1,20 @@
+##
+#
+upstream {
+  <% @upstreams.each do |u| %> 
+  server <%= u %>;
+  <% end %>
+}
+
+server {
+  listen <%= @port %>;
+  server_name  <%= @hostname %>;
+
+  #access_log  /var/log/nginx/localhost.access.log;
+  access_log  <%= @log_root %>/localhost.access.log;
+
+  location / {
+    proxy http://<%= @proxy_name %>
+  }
+}
+
